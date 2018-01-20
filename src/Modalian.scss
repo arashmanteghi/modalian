@@ -1,0 +1,66 @@
+.modalian {
+  $root: &;
+  &-mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(black, .2);
+    z-index: 1000;
+    // opacity: 1;
+    &--hidden { display: none; }
+  }
+
+  &-wrapper {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    width: 500px;
+    height: 400px;
+    z-index: 1001;
+    border: 1px solid red;
+  }
+
+  &--show {
+    animation: fadeIn .4s ease-in forwards;
+    #{$root}-mask {
+      // animation: fadeIn .9s ease-in forwards;
+
+    }
+  }
+
+  &--hide {
+    animation: fadeOut .4s ease-out forwards;
+    #{$root}-mask {
+      // animation: fadeOut .9s ease-out forwards;
+
+    }
+  }
+
+  &--none {
+    display: none;
+    #{$root}-mask {
+      // display: none;
+    }
+  }
+
+	&__header {
+    border: 1px solid red;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  90% { opacity: 1; }
+  100% { opacity: 1 }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+  100% { opacity: 0; }
+}
