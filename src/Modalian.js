@@ -22,7 +22,7 @@ export default class Modalian extends Component {
         nextProps.visible
           ? this.setState({modalianClass: 'modalian modalian--show'})
           : this.setState({modalianClass: 'modalian modalian--none'});
-      }, 410);
+      }, 210);
     }
   }
 

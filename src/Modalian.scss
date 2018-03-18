@@ -11,13 +11,14 @@
     height: 100%;
     background: rgba(black, .2);
     z-index: 1000;
-    // opacity: 1;
-    &--hidden { display: none; }
   }
 
   &-wrapper {
     display: flex;
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     justify-content: center;
     width: 500px;
     height: 400px;
@@ -26,30 +27,19 @@
   }
 
   &--show {
-    animation: fadeIn .4s ease-in forwards;
-    #{$root}-mask {
-      // animation: fadeIn .9s ease-in forwards;
-
-    }
+    animation: fadeIn .2s ease-in forwards;
   }
 
   &--hide {
-    animation: fadeOut .4s ease-out forwards;
-    #{$root}-mask {
-      // animation: fadeOut .9s ease-out forwards;
-
-    }
+    animation: fadeOut .2s ease-out forwards;
   }
 
   &--none {
     display: none;
-    #{$root}-mask {
-      // display: none;
-    }
   }
 
 	&__header {
-    border: 1px solid red;
+    border: 1px solid green;
   }
 }
 
