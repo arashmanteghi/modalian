@@ -25,9 +25,8 @@ class App extends Component {
         <Modalian
           visible={this.state.modalVisible}
           onClose={this.toggleModal}
-          style={{top: '80%'}}
         >
-          <h2 className='modalian__header'>Test Modalian</h2>
+          <p>body</p>
         </Modalian>
       </div>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import closeIcon from './close.svg';
@@ -9,39 +9,55 @@ export default class Modalian extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      modalianClass: 'modalian modalian--none'
+      modalianClass: 'modalian modalian--none',
+      modalianMaskClass: 'modalian-mask modalian-mask--none',
+      modalianWrapperClass: 'modalain-wrapper modalian-wrapper--none'
     };
   }
 
   componentWillReceiveProps (nextProps) {
     if (this.props.visible !== nextProps.visible) {
       nextProps.visible
-        ? this.setState({modalianClass: 'modalian modalian--show'})
-        : this.setState({modalianClass: 'modalian modalian--hide'});
+        ? this.setState({
+          modalianClass: 'modalian modalian--show',
+          modalianMaskClass: 'modalian-mask modalian-mask--show',
+          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+        })
+        : this.setState({
+          modalianClass: 'modalian modalian--hide',
+          modalianMaskClass: 'modalian-mask modalian-mask--hide',
+          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--hide'
+        });
       setTimeout(() => {
         nextProps.visible
-          ? this.setState({modalianClass: 'modalian modalian--show'})
-          : this.setState({modalianClass: 'modalian modalian--none'});
-      }, 210);
+          ? this.setState({
+            modalianClass: 'modalian modalian--show',
+            modalianMaskClass: 'modalian-mask modalian-mask--show',
+            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+          })
+          : this.setState({
+            modalianClass: 'modalian modalian--none',
+            modalianMaskClass: 'modalian-mask modalian-mask--none',
+            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
+          });
+      }, 310);
     }
   }
 
   render () {
-    console.log('rerender: ', this.state.modalianClass);
     return (
-      <div className={this.state.modalianClass}>
-        <div className='modalian-mask' onClick={this.props.onClose} />
-        <div className='modalian-wrapper'>
+      <Fragment>
+        <div className={this.state.modalianMaskClass} onClick={this.props.onClose} />
+        <div className={this.state.modalianWrapperClass}>
           {this.props.children}
         </div>
-        {/* <img src={closeIcon} onClick={() => { console.log('click'); }} />
-        {this.props.children} */}
-      </div>
+      </Fragment>
     );
   }
 }
 
 Modalian.propTypes = {
   children: PropTypes.node,
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
+  onClose: PropTypes.func
 };
