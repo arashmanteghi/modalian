@@ -2,6 +2,8 @@
 $modalian-border-radius: 10px;
 $modalian-z-index: 9000;
 $modalian-white: #fefefe;
+$modalian-grey-light: #f8f8f8;
+$modalian-grey: #c1c1c1;
 
 .modalian {
   $root: &;
@@ -35,25 +37,45 @@ $modalian-white: #fefefe;
     width: 500px;
     height: 400px;
     z-index: $modalian-z-index;
+    font-family: sans-serif;
     background: $modalian-white;
     border-radius: $modalian-border-radius;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
     &--show { animation: fadeIn .3s ease-in forwards; }
-    &--hide { animation: fadeOut .2s ease-out forwards; }
+    &--hide { animation: fadeOut .15s ease-out forwards; }
     &--none { display: none; }
   }
 
 
 	&__header {
     position: relative;
-    border: 1px solid green;
+    display: flex;
+    padding: 0 12px;
+    height: 60px;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: $modalian-grey-light;
+    border-bottom: 1px solid $modalian-grey;
+    &--hidden {
+      @extend #{$root}__header;
+      height: 0;
+      border-bottom: none;
+      > #{$root}__close-btn {
+        top: 10px;
+      }
+    }
+    > h2 { font-size: 19px; }
+
   }
 
   &__close-btn {
     position: absolute;
-    top: 0px;
-    right: 0;
-    z-index: 10;
+    top: 20px;
+    right: 10px;
+    padding: 5px;
+    z-index: $modalian-z-index + 1;
+    cursor: pointer;
   }
 }
 

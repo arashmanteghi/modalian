@@ -49,6 +49,13 @@ export default class Modalian extends Component {
       <Fragment>
         <div className={this.state.modalianMaskClass} onClick={this.props.onClose} />
         <div className={this.state.modalianWrapperClass}>
+          {this.props.title && <header className='modalian__header'>
+            <h2>{this.props.title}</h2>
+            <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
+          </header>}
+          {!this.props.title && <header className='modalian__header--hidden'>
+            <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
+          </header>}
           {this.props.children}
         </div>
       </Fragment>
@@ -57,7 +64,8 @@ export default class Modalian extends Component {
 }
 
 Modalian.propTypes = {
-  children: PropTypes.node,
-  visible: PropTypes.bool,
-  onClose: PropTypes.func
+  children: PropTypes.node.isRequired,
+  visible: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  title: PropTypes.string
 };
