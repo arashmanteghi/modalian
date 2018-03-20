@@ -28,14 +28,14 @@ $modalian-grey: #c1c1c1;
   }
 
   &-wrapper {
-    display: flex;
-    flex-direction: column;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
-    height: 400px;
+    height: 300px;
+    min-height: 300px;
+    // max-height: 800px;
     z-index: $modalian-z-index;
     font-family: sans-serif;
     background: $modalian-white;
@@ -46,9 +46,16 @@ $modalian-grey: #c1c1c1;
     &--none { display: none; }
   }
 
+  &__content {
+    // display: flex;
+    // flex-direction: column;
+    position: relative;
+    height: 100%;
+    border: 3px solid purple;
+  }
+
 
 	&__header {
-    position: relative;
     display: flex;
     padding: 0 12px;
     height: 60px;
@@ -64,6 +71,10 @@ $modalian-grey: #c1c1c1;
       > #{$root}__close-btn {
         top: 10px;
       }
+      + #{$root}__body {
+        top: 0;
+        height: 100%;
+      }
     }
     > h2 { font-size: 19px; }
 
@@ -76,6 +87,26 @@ $modalian-grey: #c1c1c1;
     padding: 5px;
     z-index: $modalian-z-index + 1;
     cursor: pointer;
+  }
+
+  &__body {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    // height: calc(100% - 60px);
+    // height: 100%;
+    width: 100%;
+    border: 3px solid red;
+
+  }
+
+  &__footer {
+    position: absolute;
+    // bottom: 0;;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border: 1px solid blue;
   }
 }
 

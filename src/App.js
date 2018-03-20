@@ -25,7 +25,8 @@ class App extends Component {
         <Modalian
           visible={this.state.modalVisible}
           onClose={this.toggleModal}
-          // title='Invite developers to use Modalian'
+          title='Invite developers to use Modalian'
+          // footer={null}
         >
           <p>body</p>
         </Modalian>

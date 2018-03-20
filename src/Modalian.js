@@ -13,6 +13,7 @@ export default class Modalian extends Component {
       modalianMaskClass: 'modalian-mask modalian-mask--none',
       modalianWrapperClass: 'modalain-wrapper modalian-wrapper--none'
     };
+    this.calculateBodyHeight = this.calculateBodyHeight.bind(this);
   }
 
   componentWillReceiveProps (nextProps) {
@@ -44,19 +45,38 @@ export default class Modalian extends Component {
     }
   }
 
+  calculateBodyHeight () {
+    if (this.props.title && this.props.footer) {
+      return 120;
+    } else if (this.props.title || this.props.footer) {
+      return 60;
+    } else {
+      return 0;
+    }
+  }
+
   render () {
+    let bodyHeight = this.calculateBodyHeight();
     return (
       <Fragment>
         <div className={this.state.modalianMaskClass} onClick={this.props.onClose} />
         <div className={this.state.modalianWrapperClass}>
-          {this.props.title && <header className='modalian__header'>
-            <h2>{this.props.title}</h2>
-            <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
-          </header>}
-          {!this.props.title && <header className='modalian__header--hidden'>
-            <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
-          </header>}
-          {this.props.children}
+          <main className='modalian__content'>
+            {this.props.title && <header className='modalian__header'>
+              <h2>{this.props.title}</h2>
+              <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
+            </header>}
+            {!this.props.title && <header className='modalian__header--hidden'>
+              <img className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
+            </header>}
+            <section className='modalian__body' style={{height: `calc(100% - ${bodyHeight}px)`}}>
+              {this.props.children}
+            </section>
+            {this.props.footer && <footer className='modalian__footer'>
+              <button>OK</button>
+              <button>Cancel</button>
+            </footer>}
+          </main>
         </div>
       </Fragment>
     );
@@ -67,5 +87,14 @@ Modalian.propTypes = {
   children: PropTypes.node.isRequired,
   visible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
+  footer: PropTypes.bool,
+  okBtnText: PropTypes.string,
+  cancelBtnText: PropTypes.string
+};
+
+Modalian.defaultProps = {
+  footer: true,
+  okBtnText: 'Ok',
+  cancelBtnText: 'Cancel'
 };
