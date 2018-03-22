@@ -1,9 +1,12 @@
 /* Variables */
 $modalian-border-radius: 10px;
 $modalian-z-index: 9000;
+$modalian-header-height: 52px;
 $modalian-white: #fefefe;
 $modalian-grey-light: #f8f8f8;
 $modalian-grey: #c1c1c1;
+$modalian-grey-dark: #666666;
+$modalian-blue: #50a8f6;
 
 .modalian {
   $root: &;
@@ -21,7 +24,7 @@ $modalian-grey: #c1c1c1;
     width: 100%;
     height: 100%;
     background: rgba(black, .35);
-    z-index: 1000;
+    z-index: $modalian-z-index;
     &--show { animation: fadeIn .1s ease-in forwards; }
     &--hide { animation: fadeOut .2s ease-out forwards; }
     &--none { display: none; }
@@ -36,7 +39,7 @@ $modalian-grey: #c1c1c1;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: $modalian-z-index;
+    z-index: $modalian-z-index + 1;
     &--show { animation: fadeIn .3s ease-in forwards; }
     &--hide { animation: fadeOut .15s ease-out forwards; }
     &--none { display: none; }
@@ -51,13 +54,15 @@ $modalian-grey: #c1c1c1;
     background: $modalian-white;
     border-radius: $modalian-border-radius;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    z-index: $modalian-z-index + 2;
+    border: 2px solid green;
   }
 
 
 	&__header {
     display: flex;
     padding: 0 12px;
-    height: 60px;
+    height: $modalian-header-height;
     align-items: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -75,33 +80,68 @@ $modalian-grey: #c1c1c1;
         height: 100%;
       }
     }
-    > h2 { font-size: 19px; }
+    > h2 { font-size: 18px; }
 
   }
 
+  &__body {
+    display: block;
+    top: 0px;
+    padding: 16px;
+    height: 100%;
+    width: 100%;
+    background: $modalian-white;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    direction: rtl;
+    padding: 16px;
+    width: 100%;
+    height: $modalian-header-height;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: $modalian-grey-light;
+    border-top: 1px solid $modalian-grey;
+  }
+
+
   &__close-btn {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 10px;
     padding: 5px;
     z-index: $modalian-z-index + 1;
     cursor: pointer;
   }
 
-  &__body {
-    display: block;
-    top: 60px;
-    height: 100%;
-    width: 100%;
-  }
-
-  &__footer {
-    width: 100%;
-    height: 60px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background: $modalian-grey-light;
-    border-top: 1px solid $modalian-grey;
+  &__btn {
+    display: flex;
+    padding: 10px 16px;
+    align-items: center;
+    border-radius: 5px;
+    outline: none;
+    height: 35px;
+    font-size: 12px;
+    &--ok {
+      @extend #{$root}__btn;
+      background: $modalian-blue;
+      color: $modalian-white;
+      transition: all .2s ease-in-out;
+      &:hover { background: darken($modalian-blue, 5%); }
+    }
+    &--cancel {
+      @extend #{$root}__btn;
+      margin-right: 8px;
+      border: 1px solid $modalian_grey;
+      color: $modalian-grey-dark;
+      transition: all .2s ease-in-out;
+      &:hover {
+        border: 1px solid $modalian-blue;
+        color: darken($modalian-blue, 5%);
+      }
+    }
   }
 }
 
