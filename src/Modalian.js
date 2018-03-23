@@ -67,7 +67,7 @@ export default class Modalian extends Component {
     let bodyHeight = this.calculateBodyHeight();
     return (
       <Fragment>
-        <div className={this.state.modalianMaskClass} />
+        <div className={this.state.modalianMaskClass} onClick={() => { this.handleMaskClick(); }} />
         <div className={this.state.modalianWrapperClass} onClick={() => { this.handleMaskClick(); }}>
           <main className='modalian__content' onClick={(e) => { e.stopPropagation(); }}>
             {this.props.title && <header className='modalian__header'>
