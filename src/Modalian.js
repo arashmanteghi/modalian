@@ -11,7 +11,7 @@ export default class Modalian extends Component {
     this.state = {
       modalianClass: 'modalian modalian--none',
       modalianMaskClass: 'modalian-mask modalian-mask--none',
-      modalianWrapperClass: 'modalain-wrapper modalian-wrapper--none'
+      modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
     };
     this.calculateBodyHeight = this.calculateBodyHeight.bind(this);
     this.handleMaskClick = this.handleMaskClick.bind(this);

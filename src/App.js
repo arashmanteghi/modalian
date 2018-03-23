@@ -30,11 +30,6 @@ class App extends Component {
           okBtnText='Invite'
         >
           <p>body</p>
-          <p>body</p>
-          <p>body</p>
-          <p>body</p>
-          <p>body</p>
-
         </Modalian>
       </div>
     );
