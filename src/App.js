@@ -28,6 +28,8 @@ class App extends Component {
           title='Invite developers to use Modalian'
           // footer={null}
           okBtnText='Invite'
+          onOk={() => { console.log('click on OK'); }}
+          onCancel={() => { console.log('click on Cancel'); this.toggleModal(); }}
         >
           <p>body</p>
         </Modalian>

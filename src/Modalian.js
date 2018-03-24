@@ -81,10 +81,10 @@ export default class Modalian extends Component {
               {this.props.children}
             </section>
             {this.props.footer && <footer className='modalian__footer'>
-              <button className='modalian__btn--ok'>
+              <button className='modalian__btn--ok' onClick={this.props.onOk}>
                 {this.props.okBtnText}
               </button>
-              <button className='modalian__btn--cancel' onClick={this.props.onClose}>
+              <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>
                 {this.props.cancelBtnText}
               </button>
             </footer>}
@@ -99,6 +99,8 @@ Modalian.propTypes = {
   children: PropTypes.node.isRequired,
   visible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onOk: PropTypes.func,
+  onCancel: PropTypes.func,
   title: PropTypes.string,
   footer: PropTypes.bool,
   okBtnText: PropTypes.string,
@@ -112,5 +114,7 @@ Modalian.defaultProps = {
   okBtnText: 'OK',
   cancelBtnText: 'Cancel',
   closable: true,
-  closableMask: true
+  closableMask: true,
+  onOk: () => {}
+  // onCancel: () => { console.log(Modalian.this); }
 };

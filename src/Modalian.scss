@@ -40,10 +40,12 @@ $modalian-blue: #50a8f6;
     width: 100%;
     z-index: $modalian-z-index + 1;
     &--show { 
-      animation: fadeIn .3s ease-in forwards; 
-      #{$root}__content { transform: scale(1); } 
+      animation: fadeIn .2s ease-in forwards; 
+      #{$root}__content {
+        transform: scale(1); 
+      } 
     }
-    &--hide { animation: fadeOut .3s ease-out forwards; }
+    &--hide { animation: fadeOut .1s ease-out forwards; }
     &--none { display: none; }
   }
 
@@ -56,9 +58,9 @@ $modalian-blue: #50a8f6;
     background: $modalian-white;
     border-radius: $modalian-border-radius;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
-    transition: all .2s ease-in;
+    transition: all .1s ease-in;
     transform: scale(.75);
-    // transform-origin: center;
+    transform-origin: center;
   }
 
 
