@@ -61,6 +61,10 @@ $modalian-blue: #50a8f6;
     transition: all .1s ease-in;
     transform: scale(.75);
     transform-origin: center;
+    &--confirm {
+      @extend #{$root}__content;
+      width: 350px;
+    }
   }
 
 
@@ -69,8 +73,8 @@ $modalian-blue: #50a8f6;
     padding: 0 12px;
     height: $modalian-header-height;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: $modalian-border-radius;
+    border-top-right-radius: $modalian-border-radius;
     background: $modalian-grey-light;
     border-bottom: 1px solid $modalian-grey;
     &--hidden {
@@ -96,6 +100,21 @@ $modalian-blue: #50a8f6;
     height: 100%;
     width: 100%;
     background: $modalian-white;
+    &--confirm {
+      @extend #{$root}__body;
+      height: auto !important;
+      border-radius: $modalian-border-radius;
+      h2 {
+        margin: 16px;
+        font-size: 18px;
+      }
+      span {
+        display: block;
+        margin: -8px 16px 16px;
+        font-size: 13px;
+        color: lighten($modalian-grey-dark, 10%);
+      }
+    }
   }
 
   &__footer {
@@ -105,10 +124,18 @@ $modalian-blue: #50a8f6;
     padding: 16px;
     width: 100%;
     height: $modalian-footer-height;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: $modalian-border-radius;
+    border-bottom-right-radius: $modalian-border-radius;
     background: $modalian-grey-light;
     border-top: 1px solid $modalian-grey;
+    &--confirm {
+      @extend #{$root}__footer;
+      height: auto;
+      padding: 0 24px 24px; 
+      border: none;
+      background: transparent;
+
+    }
   }
 
 
@@ -125,7 +152,7 @@ $modalian-blue: #50a8f6;
     display: flex;
     padding: 10px 16px;
     align-items: center;
-    border-radius: 5px;
+    border-radius: $modalian-border-radius / 2;
     outline: none;
     height: 35px;
     font-size: 12px;

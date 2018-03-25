@@ -9,7 +9,6 @@ export default class Modalian extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      modalianClass: 'modalian modalian--none',
       modalianMaskClass: 'modalian-mask modalian-mask--none',
       modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
     };
@@ -21,24 +20,20 @@ export default class Modalian extends Component {
     if (this.props.visible !== nextProps.visible) {
       nextProps.visible
         ? this.setState({
-          modalianClass: 'modalian modalian--show',
           modalianMaskClass: 'modalian-mask modalian-mask--show',
           modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
         })
         : this.setState({
-          modalianClass: 'modalian modalian--hide',
           modalianMaskClass: 'modalian-mask modalian-mask--hide',
           modalianWrapperClass: 'modalian-wrapper modalian-wrapper--hide'
         });
       setTimeout(() => {
         nextProps.visible
           ? this.setState({
-            modalianClass: 'modalian modalian--show',
             modalianMaskClass: 'modalian-mask modalian-mask--show',
             modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
           })
           : this.setState({
-            modalianClass: 'modalian modalian--none',
             modalianMaskClass: 'modalian-mask modalian-mask--none',
             modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
           });
@@ -116,5 +111,86 @@ Modalian.defaultProps = {
   closable: true,
   closableMask: true,
   onOk: () => {}
-  // onCancel: () => { console.log(Modalian.this); }
+};
+
+
+
+export class Confirm extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      modalianMaskClass: 'modalian-mask modalian-mask--none',
+      modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
+    };
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.visible !== nextProps.visible) {
+      nextProps.visible
+        ? this.setState({
+          modalianMaskClass: 'modalian-mask modalian-mask--show',
+          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+        })
+        : this.setState({
+          modalianMaskClass: 'modalian-mask modalian-mask--hide',
+          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--hide'
+        });
+      setTimeout(() => {
+        nextProps.visible
+          ? this.setState({
+            modalianMaskClass: 'modalian-mask modalian-mask--show',
+            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+          })
+          : this.setState({
+            modalianMaskClass: 'modalian-mask modalian-mask--none',
+            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
+          });
+      }, 310);
+    }
+  }
+
+  render () {
+    return (
+      <Fragment>
+        <div className={this.state.modalianMaskClass} />
+        <div className={this.state.modalianWrapperClass}>
+          <main className='modalian__content--confirm' onClick={(e) => { e.stopPropagation(); }}>
+            <header className='modalian__header--hidden'>
+              <img alt='close' className='modalian__close-btn' src={closeIcon} onClick={this.props.onClose} />
+            </header>
+            <section className='modalian__body--confirm'>
+              <h2>{this.props.title}</h2>
+              <span>{this.props.description}</span>
+            </section>
+            <footer className='modalian__footer--confirm'>
+              <button className='modalian__btn--ok' onClick={this.props.onConfirm}>
+                {this.props.confirmBtnText}
+              </button>
+              <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>
+                {this.props.cancelBtnText}
+              </button>
+            </footer>
+          </main>
+        </div>
+      </Fragment>
+    );
+  }
+}
+
+Confirm.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func,
+  onCancel: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  confirmBtnText: PropTypes.string,
+  cancelBtnText: PropTypes.string,
+  closableMask: PropTypes.bool
+};
+
+Confirm.defaultProps = {
+  confirmBtnText: 'OK',
+  cancelBtnText: 'Cancel',
+  closableMask: true,
+  onConfirm: () => {}
 };
