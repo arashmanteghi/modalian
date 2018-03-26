@@ -17,25 +17,37 @@ export default class Modalian extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (this.props.visible !== nextProps.visible) {
+    this.handleShowHide(this.props, nextProps);
+  }
+
+  generateModalianClasses (element, theme, isRtl) {
+    return (
+      isRtl
+        ? `modalian-${element} modalian-${element}--${theme} rtl`
+        : `modalian-${element} modalian-${element}--${theme}`
+    );
+  }
+
+  handleShowHide (currentProps, nextProps) {
+    if (currentProps.visible !== nextProps.visible) {
       nextProps.visible
         ? this.setState({
-          modalianMaskClass: 'modalian-mask modalian-mask--show',
-          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+          modalianMaskClass: this.generateModalianClasses('mask', 'show'),
+          modalianWrapperClass: this.generateModalianClasses('wrapper', 'show', nextProps.rtl)
         })
         : this.setState({
-          modalianMaskClass: 'modalian-mask modalian-mask--hide',
-          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--hide'
+          modalianMaskClass: this.generateModalianClasses('mask', 'hide'),
+          modalianWrapperClass: this.generateModalianClasses('wrapper', 'hide', nextProps.rtl)
         });
       setTimeout(() => {
         nextProps.visible
           ? this.setState({
-            modalianMaskClass: 'modalian-mask modalian-mask--show',
-            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
+            modalianMaskClass: this.generateModalianClasses('mask', 'show'),
+            modalianWrapperClass: this.generateModalianClasses('wrapper', 'show', nextProps.rtl)
           })
           : this.setState({
-            modalianMaskClass: 'modalian-mask modalian-mask--none',
-            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
+            modalianMaskClass: this.generateModalianClasses('mask', 'none'),
+            modalianWrapperClass: this.generateModalianClasses('wrapper', 'none')
           });
       }, 310);
     }
@@ -76,7 +88,7 @@ export default class Modalian extends Component {
               {this.props.children}
             </section>
             {this.props.footer && <footer className='modalian__footer'>
-              <button className='modalian__btn--ok' onClick={this.props.onOk}>
+              <button className='modalian__btn--confirm' onClick={this.props.onOk}>
                 {this.props.okBtnText}
               </button>
               <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>
@@ -113,8 +125,6 @@ Modalian.defaultProps = {
   onOk: () => {}
 };
 
-
-
 export class Confirm extends Component {
   constructor (props) {
     super(props);
@@ -122,6 +132,16 @@ export class Confirm extends Component {
       modalianMaskClass: 'modalian-mask modalian-mask--none',
       modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
     };
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    // console.log('prevState: ', prevState);
+    // console.log('prevProps: ', prevProps);
+    // if (this.props.rtl) {
+    //   this.setState(prevState => ({
+    //     modalianWrapperClass: `${prevState.modalianWrapperClass} rtl`
+    //   }));
+    // }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -163,7 +183,7 @@ export class Confirm extends Component {
               <span>{this.props.description}</span>
             </section>
             <footer className='modalian__footer--confirm'>
-              <button className='modalian__btn--ok' onClick={this.props.onConfirm}>
+              <button className='modalian__btn--confirm' onClick={this.props.onConfirm}>
                 {this.props.confirmBtnText}
               </button>
               <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>

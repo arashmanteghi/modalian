@@ -38,6 +38,7 @@ class App extends Component {
           okBtnText='Invite'
           onOk={() => { console.log('click on OK'); }}
           onCancel={() => { console.log('click on Cancel'); this.toggleModal(); }}
+          rtl
         >
           <p>body</p>
           <p>body</p>
