@@ -76,7 +76,7 @@ export default class Modalian extends Component {
               {this.props.children}
             </section>
             {this.props.footer && <footer className='modalian__footer'>
-              <button className='modalian__btn--ok' onClick={this.props.onOk}>
+              <button className='modalian__btn--confirm' onClick={this.props.onOk}>
                 {this.props.okBtnText}
               </button>
               <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>
@@ -163,7 +163,7 @@ export class Confirm extends Component {
               <span>{this.props.description}</span>
             </section>
             <footer className='modalian__footer--confirm'>
-              <button className='modalian__btn--ok' onClick={this.props.onConfirm}>
+              <button className='modalian__btn--confirm' onClick={this.props.onConfirm}>
                 {this.props.confirmBtnText}
               </button>
               <button className='modalian__btn--cancel' onClick={this.props.onCancel || this.props.onClose}>

@@ -156,7 +156,7 @@ $modalian-blue: #50a8f6;
     outline: none;
     height: 35px;
     font-size: 12px;
-    &--ok {
+    &--confirm {
       @extend #{$root}__btn;
       background: $modalian-blue;
       color: $modalian-white;
@@ -165,7 +165,7 @@ $modalian-blue: #50a8f6;
     }
     &--cancel {
       @extend #{$root}__btn;
-      margin-right: 8px;
+      margin-right: 12px;
       border: 1px solid $modalian_grey;
       color: $modalian-grey-dark;
       transition: all .2s ease-in-out;
