@@ -57,6 +57,7 @@ $modalian-blue: #50a8f6;
     font-family: sans-serif;
     background: $modalian-white;
     border-radius: $modalian-border-radius;
+    overflow: hidden;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
     transition: all .1s ease-in;
     transform: scale(.75);
@@ -76,8 +77,6 @@ $modalian-blue: #50a8f6;
     padding: 0 12px;
     height: $modalian-header-height;
     align-items: center;
-    border-top-left-radius: $modalian-border-radius;
-    border-top-right-radius: $modalian-border-radius;
     background: $modalian-grey-light;
     border-bottom: 1px solid $modalian-grey;
     &--hidden {
@@ -102,6 +101,9 @@ $modalian-blue: #50a8f6;
     height: 100%;
     width: 100%;
     background: $modalian-white;
+    .rtl & {
+      direction: rtl;
+    }
     &--confirm {
       @extend #{$root}__body;
       height: auto !important;
@@ -126,10 +128,11 @@ $modalian-blue: #50a8f6;
     padding: 16px;
     width: 100%;
     height: $modalian-footer-height;
-    border-bottom-left-radius: $modalian-border-radius;
-    border-bottom-right-radius: $modalian-border-radius;
     background: $modalian-grey-light;
     border-top: 1px solid $modalian-grey;
+    .rtl & {
+      direction: ltr;
+    }
     &--confirm {
       @extend #{$root}__footer;
       height: auto;
@@ -175,6 +178,10 @@ $modalian-blue: #50a8f6;
       border: 1px solid $modalian_grey;
       color: $modalian-grey-dark;
       transition: all .2s ease-in-out;
+      .rtl & {
+        margin-right: 0;
+        margin-left: 12px;
+      }
       &:hover {
         border: 1px solid $modalian-blue;
         color: darken($modalian-blue, 5%);

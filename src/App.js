@@ -54,6 +54,7 @@ class App extends Component {
           onCancel={() => { console.log('click on Cancel'); this.toggleConfirm(); }}
           title='Are you sure about this title?'
           description='yes, Im sure you should to that'
+          rtl
         />
       </div>
     );

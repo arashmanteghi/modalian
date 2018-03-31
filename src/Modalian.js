@@ -55,16 +55,17 @@ export default class Modalian extends Component {
 
   calculateBodyHeight () {
     if (this.props.title && this.props.footer) {
-      return 120;
-    } else if (this.props.title || this.props.footer) {
-      return 60;
+      return 118;
+    } else if (this.props.title) {
+      return 52;
+    } else if (this.props.footer) {
+      return 66;
     } else {
       return 0;
     }
   }
 
   handleMaskClick () {
-    console.log('click on mask');
     if (this.props.closableMask) {
       this.props.onClose();
     }
@@ -125,7 +126,7 @@ Modalian.defaultProps = {
   onOk: () => {}
 };
 
-export class Confirm extends Component {
+export class Confirm extends Modalian {
   constructor (props) {
     super(props);
     this.state = {
@@ -134,39 +135,8 @@ export class Confirm extends Component {
     };
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    // console.log('prevState: ', prevState);
-    // console.log('prevProps: ', prevProps);
-    // if (this.props.rtl) {
-    //   this.setState(prevState => ({
-    //     modalianWrapperClass: `${prevState.modalianWrapperClass} rtl`
-    //   }));
-    // }
-  }
-
   componentWillReceiveProps (nextProps) {
-    if (this.props.visible !== nextProps.visible) {
-      nextProps.visible
-        ? this.setState({
-          modalianMaskClass: 'modalian-mask modalian-mask--show',
-          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
-        })
-        : this.setState({
-          modalianMaskClass: 'modalian-mask modalian-mask--hide',
-          modalianWrapperClass: 'modalian-wrapper modalian-wrapper--hide'
-        });
-      setTimeout(() => {
-        nextProps.visible
-          ? this.setState({
-            modalianMaskClass: 'modalian-mask modalian-mask--show',
-            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--show'
-          })
-          : this.setState({
-            modalianMaskClass: 'modalian-mask modalian-mask--none',
-            modalianWrapperClass: 'modalian-wrapper modalian-wrapper--none'
-          });
-      }, 310);
-    }
+    this.handleShowHide(this.props, nextProps);
   }
 
   render () {
@@ -205,12 +175,10 @@ Confirm.propTypes = {
   title: PropTypes.string.isRequired,
   confirmBtnText: PropTypes.string,
   cancelBtnText: PropTypes.string,
-  closableMask: PropTypes.bool
 };
 
 Confirm.defaultProps = {
   confirmBtnText: 'OK',
   cancelBtnText: 'Cancel',
-  closableMask: true,
   onConfirm: () => {}
 };
