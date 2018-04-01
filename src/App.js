@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Modalian, { Confirm } from './Modalian';
+import Modalian, { Confirm } from './modalian/Modalian';
 
 // styles
 import './App.scss';

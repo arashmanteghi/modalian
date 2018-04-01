@@ -174,7 +174,7 @@ Confirm.propTypes = {
   onCancel: PropTypes.func,
   title: PropTypes.string.isRequired,
   confirmBtnText: PropTypes.string,
-  cancelBtnText: PropTypes.string,
+  cancelBtnText: PropTypes.string
 };
 
 Confirm.defaultProps = {
