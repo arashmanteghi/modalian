@@ -174,16 +174,17 @@ body {
 
 .title {
   font-size: 36px;
+  font-weight: bold;
   text-align: center;
   a {
-    color: #ecf0f1;
+    color: lighten(#ecf0f1, 5%);
     text-decoration: none;
   }
 };
 
 .description {
   padding-top: 5px;
-  color: darken(#ecf0f1, 1%);
+  color: lighten(#ecf0f1, 1%);
   font-size: 14px;
 }
 
