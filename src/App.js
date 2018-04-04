@@ -118,8 +118,8 @@ class App extends Component {
         <footer className='footer'>
           <span className='by'>by <a href='https://twitter.com/arashmanteghi'>@arashmanteghi</a></span>
           <div className='repo-info'>
-            <iframe title='start' frameBorder='true' src='http://ghbtns.com/github-btn.html?user=arashmanteghi&amp;repo=modalian&amp;type=watch&amp;count=true' allowtransparency='true' scrolling='0' width='105' height='20' />
-            <iframe title='fork' frameBorder='true' src='http://ghbtns.com/github-btn.html?user=arashmanteghi&amp;repo=modalian&amp;type=fork&amp;count=true' allowtransparency='true' scrolling='0' width='105' height='20' />
+            <iframe title='start' frameBorder='true' src='https://ghbtns.com/github-btn.html?user=arashmanteghi&amp;repo=modalian&amp;type=watch&amp;count=true' allowtransparency='true' scrolling='0' width='105' height='20' />
+            <iframe title='fork' frameBorder='true' src='https://ghbtns.com/github-btn.html?user=arashmanteghi&amp;repo=modalian&amp;type=fork&amp;count=true' allowtransparency='true' scrolling='0' width='105' height='20' />
           </div>
         </footer>
       </Fragment>
