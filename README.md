@@ -23,26 +23,24 @@ yarn add modalian
 import Modalian, { Confirm } from 'modalian';
 
 <Modalian
-	visible={this.state.modalVisible}
-	onClose={this.toggleModal}
-	title='Invite developers to use Modalian'
-	okBtnText='Invite'
-	onOk={() => { console.log('click on OK'); }}
+  visible={this.state.modalVisible}
+  onClose={this.toggleModal}
+  title='Invite developers to use Modalian'
+  okBtnText='Invite'
+  onOk={() => { console.log('click on OK'); }}
 	onCancel={() => { console.log('click on Cancel'); this.toggleModal(); }}
 >
-	<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-	</p>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 </Modalian>
 
 <Confirm
-	visible={this.state.confirmVisible}
-	onClose={this.toggleConfirm}
-	confirmBtnText='Confirm'
-	onConfirm={() => { console.log('click on Confirm'); }}
-	onCancel={() => { console.log('click on Cancel'); this.toggleConfirm(); }}
-	title='Are you sure about it?'
-	description='you cant undo this action'
+  visible={this.state.confirmVisible}
+  onClose={this.toggleConfirm}
+  confirmBtnText='Confirm'
+  onConfirm={() => { console.log('click on Confirm'); }}
+  onCancel={() => { console.log('click on Cancel'); this.toggleConfirm(); }}
+  title='Are you sure about it?'
+  description='you cant undo this action'
 />
 ```
 
