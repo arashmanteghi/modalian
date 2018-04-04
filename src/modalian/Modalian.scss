@@ -3,6 +3,7 @@ $modalian-border-radius: 10px;
 $modalian-z-index: 9000;
 $modalian-header-height: 52px;
 $modalian-footer-height: 66px;
+$modalian-black: #222222;
 $modalian-white: #fefefe;
 $modalian-grey-light: #fafafa;
 $modalian-grey: #c1c1c1;
@@ -39,6 +40,7 @@ $modalian-blue: #50a8f6;
     left: 0;
     width: 100%;
     z-index: $modalian-z-index + 1;
+    color: $modalian-black;
     &--show { 
       animation: fadeIn .2s ease-in forwards; 
       #{$root}__content {
@@ -101,9 +103,11 @@ $modalian-blue: #50a8f6;
     height: 100%;
     width: 100%;
     background: $modalian-white;
+    font-size: 15px;
     .rtl & {
       direction: rtl;
     }
+
     &--confirm {
       @extend #{$root}__body;
       height: auto !important;
@@ -114,7 +118,7 @@ $modalian-blue: #50a8f6;
       }
       span {
         display: block;
-        margin: -8px 16px 16px;
+        margin: -8px 18px 16px;
         font-size: 13px;
         color: lighten($modalian-grey-dark, 10%);
       }

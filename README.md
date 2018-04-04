@@ -1,6 +1,6 @@
 # Modalian
 
-Modalian is a simple react component. You can visit [online Demo](https://arashmanteghi.github.io/modalian/)
+Modalian is a simple react modal component. You can visit [online Demo](https://arashmanteghi.github.io/modalian/)
 
 
 ## Install
