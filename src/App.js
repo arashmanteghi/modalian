@@ -24,19 +24,27 @@ class App extends Component {
   }
 
   toggleModal () {
-    this.setState({ modalVisible: !this.state.modalVisible });
+    this.setState(prevState => ({
+      modalVisible: !prevState.modalVisible
+    }));
   }
 
   toggleConfirm () {
-    this.setState({ confirmVisible: !this.state.confirmVisible });
+    this.setState(prevState => ({
+      confirmVisible: !prevState.confirmVisible
+    }));
   }
 
   toggleRtlModal () {
-    this.setState({ rtlModalVisible: !this.state.rtlModalVisible });
+    this.setState(prevState => ({
+      rtlModalVisible: !prevState.rtlModalVisible
+    }));
   }
 
   toggleRtlConfirm () {
-    this.setState({ rtlConfirmVisible: !this.state.rtlConfirmVisible });
+    this.setState(prevState => ({
+      rtlConfirmVisible: !prevState.rtlConfirmVisible
+    }));
   }
 
   render () {
@@ -83,7 +91,7 @@ class App extends Component {
             confirmBtnText='Confirm'
             onConfirm={() => { console.log('click on Confirm'); this.toggleConfirm(); }}
             onCancel={() => { console.log('click on Cancel'); this.toggleConfirm(); }}
-            title='Are you sure about this it?'
+            title='Are you sure about it?'
             description='you cant undo this action'
           />
           <Modalian
