@@ -1,13 +1,3 @@
-
-/*
-  The code below has been extracted from the following projects:
-  - https://github.com/murtaugh/HTML5-Reset
-  - http://meyerweb.com
-  - http://html5doctor.com
-  - http://html5boilerplate.com
-  … and then cleaned up a lot.
-*/
-
 html,
 body,
 div,
@@ -151,4 +141,92 @@ input[type='submit'] {
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+
+body {
+  background: #e74c3c;
+  color: #ecf0f1;
+  font-family: sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: 30px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 130px);
+}
+
+.title {
+  font-size: 36px;
+  text-align: center;
+  a {
+    color: #ecf0f1;
+    text-decoration: none;
+  }
+};
+
+.description {
+  padding-top: 5px;
+  color: darken(#ecf0f1, 1%);
+  font-size: 14px;
+}
+
+.btn {
+  margin: 12px;
+  padding: 13px 18px;
+  border-radius: 3px;
+  background: #ecf0f1;
+  font-size: 14px;
+  outline: none;
+  transition: all .2s ease-in;
+  &:hover { background: darken(#ecf0f1, 3%); }
+  &--small {
+    @extend .btn;
+    margin: 12px 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  margin-right: 5px;
+  opacity: .7;
+}
+
+.by {
+  display: inline-block;
+  padding-left: 20px;
+  a {
+    color: #ecf0f1;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.repo-info {
+  width: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
