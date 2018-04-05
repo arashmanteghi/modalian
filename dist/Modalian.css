@@ -1,3 +1,12 @@
+html {
+  box-sizing: border-box;
+  overflow-y: scroll; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 /* Variables */
 .modalian--show {
   animation: fadeIn .2s ease-in forwards; }

@@ -1,3 +1,14 @@
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 /* Variables */
 $modalian-border-radius: 10px;
 $modalian-z-index: 9000;
