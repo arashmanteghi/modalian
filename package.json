@@ -1,6 +1,6 @@
 {
   "name": "modalian",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "simple react component",
   "private": false,
   "keywords": [
@@ -9,7 +9,7 @@
     "component",
     "modal"
   ],
-  "main": "dist/modalian.js",
+  "main": "dist/Modalian.js",
   "author": "Arash Manteghi - @arashmanteghi",
   "license": "MIT",
   "homepage": "https://arashmanteghi.github.io/modalian/",
