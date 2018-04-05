@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import closeIcon from './close.svg';
 
-if (process.env.NODE_ENV === 'development') {
-  require('./Modalian.scss');
-} else {
+try {
   require('./Modalian.css');
+} catch (e) {
+  require('./Modalian.scss');
 }
 
 export default class Modalian extends Component {
