@@ -1,0 +1,173 @@
+/* Variables */
+.modalian--show {
+  animation: fadeIn .2s ease-in forwards; }
+
+.modalian--hide {
+  animation: fadeOut .2s ease-out forwards; }
+
+.modalian--none {
+  display: none; }
+
+.modalian-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9000; }
+  .modalian-mask--show {
+    animation: fadeIn .1s ease-in forwards; }
+  .modalian-mask--hide {
+    animation: fadeOut .2s ease-out forwards; }
+  .modalian-mask--none {
+    display: none; }
+
+.modalian-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  z-index: 9001;
+  color: #222222; }
+  .modalian-wrapper--show {
+    animation: fadeIn .2s ease-in forwards; }
+    .modalian-wrapper--show .modalian__content, .modalian-wrapper--show .modalian__content--confirm {
+      transform: scale(1); }
+  .modalian-wrapper--hide {
+    animation: fadeOut .1s ease-out forwards; }
+  .modalian-wrapper--none {
+    display: none; }
+
+.modalian__content, .modalian__content--confirm {
+  display: block;
+  position: relative;
+  width: 500px;
+  height: auto;
+  font-family: sans-serif;
+  background: #fefefe;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+  transition: all .1s ease-in;
+  transform: scale(0.75);
+  transform-origin: center; }
+  .modalian__content--confirm {
+    width: 350px; }
+  .rtl .modalian__content, .rtl .modalian__content--confirm {
+    direction: rtl; }
+
+.modalian__header, .modalian__header--hidden {
+  display: flex;
+  padding: 0 12px;
+  height: 52px;
+  align-items: center;
+  background: #fafafa;
+  border-bottom: 1px solid #c1c1c1; }
+  .modalian__header--hidden {
+    height: 0;
+    border-bottom: none; }
+    .modalian__header--hidden > .modalian__close-btn {
+      top: 10px; }
+    .modalian__header--hidden + .modalian__body, .modalian__header--hidden + .modalian__body--confirm {
+      top: 0;
+      height: 100%; }
+  .modalian__header > h2, .modalian__header--hidden > h2 {
+    font-size: 18px; }
+
+.modalian__body, .modalian__body--confirm {
+  display: block;
+  top: 0px;
+  padding: 16px;
+  height: 100%;
+  width: 100%;
+  background: #fefefe;
+  font-size: 15px; }
+  .rtl .modalian__body, .rtl .modalian__body--confirm {
+    direction: rtl; }
+  .modalian__body--confirm {
+    height: auto !important;
+    border-radius: 10px; }
+    .modalian__body--confirm h2 {
+      margin: 16px;
+      font-size: 18px; }
+    .modalian__body--confirm span {
+      display: block;
+      margin: -8px 18px 16px;
+      font-size: 13px;
+      color: gray; }
+
+.modalian__footer, .modalian__footer--confirm {
+  display: flex;
+  align-items: center;
+  direction: rtl;
+  padding: 16px;
+  width: 100%;
+  height: 66px;
+  background: #fafafa;
+  border-top: 1px solid #c1c1c1; }
+  .rtl .modalian__footer, .rtl .modalian__footer--confirm {
+    direction: ltr; }
+  .modalian__footer--confirm {
+    height: auto;
+    padding: 0 24px 24px;
+    border: none;
+    background: transparent; }
+
+.modalian__close-btn {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  padding: 5px;
+  z-index: 9001;
+  cursor: pointer; }
+  .rtl .modalian__close-btn {
+    left: 10px;
+    right: auto; }
+
+.modalian__btn, .modalian__btn--confirm, .modalian__btn--cancel {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  border-radius: 5px;
+  outline: none;
+  height: 35px;
+  font-size: 12px; }
+  .modalian__btn--confirm {
+    background: #50a8f6;
+    color: #fefefe;
+    transition: all .2s ease-in-out; }
+    .modalian__btn--confirm:hover {
+      background: #389cf5; }
+  .modalian__btn--cancel {
+    margin-right: 12px;
+    border: 1px solid #c1c1c1;
+    color: #666666;
+    transition: all .2s ease-in-out; }
+    .rtl .modalian__btn--cancel {
+      margin-right: 0;
+      margin-left: 12px; }
+    .modalian__btn--cancel:hover {
+      border: 1px solid #50a8f6;
+      color: #389cf5; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
