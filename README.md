@@ -45,8 +45,9 @@ import Modalian, { Confirm } from 'modalian';
 ```
 
 Modalian options:
+
 | Property            | Description                                       | Type     | Default  |
-| ------------------- | ------------------------------------------------- | -------  | -------- |
+|-                    |:-:                                                |:-:       |-         |
 | visible             | show or hide modal                                | boolean  | -        |
 | onClose             | calles when a user clicks close icon              | function | -        |
 | onOk                | calles when a user clicks OK button               | function | -        |
@@ -60,8 +61,9 @@ Modalian options:
 
 
 Confirm options:
+
 | Property            | Description                                       | Type     | Default  |
-| ------------------- | ------------------------------------------------- | -------  | -------- |
+|-                    |:-:                                                |:-:       |-         |
 | visible             | show or hide confirm                              | boolean  | -        |
 | onClose             | calles when a user clicks close icon              | function | -        |
 | onConfirm           | calles when a user clicks Confirm button          | function | -        |
