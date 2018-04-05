@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 import closeIcon from './close.svg';
 
-import './Modalian.scss';
+if (process.env.NODE_ENV === 'development') {
+  require('./Modalian.scss');
+} else {
+  require('./Modalian.css');
+}
 
 export default class Modalian extends Component {
   constructor (props) {

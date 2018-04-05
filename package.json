@@ -35,6 +35,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dist": "./node_modules/.bin/babel ./src/modalian/ --presets=env,react --out-dir ./dist --copy-files"
+    "dist": "node-sass-chokidar src/modalian/Modalian.scss -o ./dist && ./node_modules/.bin/babel ./src/modalian/ --presets=env,react --out-dir ./dist --copy-files"
   }
 }
