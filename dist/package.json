@@ -1,0 +1,28 @@
+{
+  "name": "modalian",
+  "version": "0.1.8",
+  "description": "simple react component",
+  "private": false,
+  "keywords": [
+    "react",
+    "reactjs",
+    "component",
+    "modal"
+  ],
+  "main": "Modalian.js",
+  "author": "Arash Manteghi - @arashmanteghi",
+  "license": "MIT",
+  "homepage": "https://arashmanteghi.github.io/modalian/",
+  "bugs": {
+    "url": "https://github.com/arashmanteghi/modalian/issues",
+    "email": "arash.manteghi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arashmanteghi/modalian.git"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
